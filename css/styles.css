@@ -1,0 +1,143 @@
+h1, h2, h3, h4, h5, h6, h7, header, body, footer, ul
+{font-weight: normal;margin:0px;padding:0px;}
+
+li {list-style: none;}
+
+.left 	{float: left;}
+.right 	{float: right;}
+.top 	{z-index: 2; position: relative}
+.bottom {z-index: 1; position: relative}
+a		{cursor: pointer;}
+
+section.clean {clear: both;height: 10px;position: relative;}
+
+header {
+	position: relative;
+	background-color: #1D1E24;
+	color: #C18E44;
+	padding: 5px 10px;
+	height: 50px;
+}
+
+.task {
+	position: relative;
+    padding: 10px 15px;	
+    margin:5px 0px;
+    display: block;
+	
+	color: #666666;
+    font-size: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) inset, 0 0 0 #000000;
+    -moz-box-sizing: border-box;
+    background-color: rgba(250, 250, 250, 0.9);
+    background-image: -moz-linear-gradient(center top , rgba(255, 255, 255, 0.9) 0%, rgba(250, 250, 250, 0.9) 100%);
+}
+
+.task h4 {
+	position: relative;
+	font-size: 13px;
+	font-weight: bold;
+}
+.task h4 a {color: inherit;text-decoration: none;}
+
+.task p {}
+
+.wraper {
+	position: relative;
+	width: 100%;
+	margin:0 auto;
+}
+
+#main_box .box_usuari {
+	float: left;
+	width: 19.79%;
+	height: 600px;
+	border-left:1px dotted #E0D0AA;
+}
+#main_box .first 	{border:none;}
+#main_box .last 	{}
+
+#main_box .box_usuari h2 {
+	position: relative;
+	margin-top: 10px;
+	font-family: 'Arvo', serif;
+	font-size: 60px;
+	color: #E0D0AA;
+	line-height: 45px;
+}
+#main_box .box_usuari span{font-size: 16px;font-style: italic;color: #8DA893;}
+
+
+.box_content {position: relative;padding:10px;height: 100%;}
+.box_content li.completada {opacity: 0.4;}
+
+input.txt, 
+select.txt, 
+textarea.txt {
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 2px 3px #CCCCCC inset;
+    color: #333333;
+    font-size: 13px;
+    height: 30px;
+    padding: 0 0 0 5px;
+    width: 300px;
+}
+textarea.txt {height: 100px;}
+.ui-widget {font-size: 11px!important;}
+
+div#form_task {
+	position: absolute;
+	top: -500px;
+	left: 30%;
+	padding: 20px;
+	border-radius: 4px;
+	
+	background-color: #C18E44;
+	color: #493227;
+	font-size: 20px;
+	
+	font-family: 'Shadows Into Light', cursive;
+}
+div#form_task a#close {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    width: 35px;
+    height: 35px;
+	background: url("../images/fancybox_sprite.png") no-repeat scroll left top transparent;
+}
+
+
+div#form_task input,
+div#form_task select,
+div#form_task textarea {font-family: 'Exo', sans-serif;}
+
+div#form_task select {padding-top: 3px;}
+
+.btn {
+	border: medium none;
+    border-radius: 4px 4px 4px 4px;
+    font-size: 14px;
+    height: 30px;
+    padding-top: 1px;
+    position: relative;
+    width: 100px;
+    margin-top: 2px;
+    box-shadow: 1px 1px 3px #1D1E24;
+    background-color: #493227;
+    color: #C18E44;
+}
+.btn:active {margin-top: 3px;}
+
+.drop_active 	{border: 1px dashed #ccc;}
+.drop_hover 	{background-color: rgba(73, 50, 39, 0.1);}
+
+.btn_timer {
+	position: relative;
+	margin-left: 5px;
+}
+.btn_timer img {width: 15px;}
+.spiner {width: 50px;}
