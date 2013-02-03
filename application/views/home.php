@@ -156,13 +156,10 @@ $this->view('bar.php');
 		    $.ajax({
 		        url: $(this).parent(".update_timer").attr( 'action' ),
 		        type: 'post',
-		        //dataType: 'json',
 		        data: $(this).parent(".update_timer").serialize(),
 			}).done( function(msg) {
-				console.log('done');
 	        	elem.parent().parent().parent().children('.timer_actual').html(valor);
 		    }).fail( function(jqXHR, textStatus) {
-			    console.log('fail');
 		    });			
 		});
 	});
