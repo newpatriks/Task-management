@@ -31,13 +31,14 @@ $this->view('bar.php');
 									<!--
 									Data finalització: <?=$item_t->dia_datafi?>/<?=$item_t->mes_datafi?>/<?=$item_t->any_datafi?><br/>
 									-->
-									Temps dedicat: <?=$item_t->temps_dedicat?> hores 
+									Temps dedicat: <div class="timer_actual"><?=$item_t->temps_dedicat?></div> hores 
 									<a class="btn_timer"><img src="images/clock.png" /></a>
 									
 									<div class="spiner_container">
 										<form name="update_timer" class="update_timer" method="post" action="tarea/updateTimer">
 											<input type="hidden" name="id_task" value="<?=$item_t->pk_tasca?>" />
 											<input type="hidden" name="id_user" value="<?=$item_u->pk_usuari?>" />
+											<input type="hidden" class="temps_aux" name="temps_aux" value="<?=$item_t->temps_dedicat?>" />
 											
 											<input name="temps" class="spiner" id="spiner_<?=$item_t->pk_tasca?>" value="<?=$item_t->temps_dedicat?>" />
 											<a class="btn_tick"><img src="images/tick.png" /></a>
@@ -149,23 +150,20 @@ $this->view('bar.php');
 		});
 		
 		$( ".btn_tick" ).click(function() {
-			$(this).parent(".update_timer").submit();
-			/*
-			$(this).parent(".update_timer").submit(function(event) {
-				event.preventDefault();
-				
-				var $form 	= $( this ),
-					term	= 	$form.find( 'input[name="s"]' ).val(),
-					url 	= 	$form.attr( 'action' );
-					
-				var posting = $.post( url, { s: term } );
-				
-				//posting.done(function( data ) {
-					//var content = $( data ).find( '#content' );
-					//$( "#result" ).empty().append( content );
-				//});
-			});
-			*/
+			var elem = $(this);
+			var valor = $(this).parent().find(".spiner").spinner().spinner('value');
+			
+		    $.ajax({
+		        url: $(this).parent(".update_timer").attr( 'action' ),
+		        type: 'post',
+		        //dataType: 'json',
+		        data: $(this).parent(".update_timer").serialize(),
+			}).done( function(msg) {
+				console.log('done');
+	        	elem.parent().parent().parent().children('.timer_actual').html(valor);
+		    }).fail( function(jqXHR, textStatus) {
+			    console.log('fail');
+		    });			
 		});
 	});
 	

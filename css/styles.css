@@ -141,3 +141,4 @@ div#form_task select {padding-top: 3px;}
 }
 .btn_timer img {width: 15px;}
 .spiner {width: 50px;}
+.timer_actual{display: inline;font-size: 16px;font-style: italic;color: #8DA893;}
