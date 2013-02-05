@@ -78,6 +78,14 @@ class Tasca extends CI_Model {
    		);
    		$this->db->update('tasca_x_usuari', $data, array('fk_tasca' => $id_tasca, 'fk_usuari' => $id_ususari ));    
     }
-    
+  	
+  	function updateCompleteTask($id_tasca, $id_ususari, $completada, $date)
+  	{	
+		$data = array(
+			'data_fi' => $date,
+        	'completada' => $completada
+   		);
+   		$this->db->update('tasca', $data, array('pk_tasca' => $id_tasca));
+  	}  
 }
 ?>

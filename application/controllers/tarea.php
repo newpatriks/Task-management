@@ -44,9 +44,27 @@ class Tarea extends CI_Controller {
 		$this->load->model('tasca', 'm_tasca', TRUE);
 		$this->m_tasca->updateTimerTask($id_tasca, $id_ususari, $timer);
 		
-		$this->load->helper('url');
-		redirect(base_url().'home', 'refresh');
+		//$this->load->helper('url');
+		//redirect(base_url().'home', 'refresh');
+	}
+	
+	public function updateComplete()
+	{
+		$completada	= 	$_POST['is_complete_aux'];
+		$id_tasca	=	$_POST['id_task'];
+		$id_ususari	=	$_POST['id_user'];
+		$date 		= 	date("y/m/d"); 
 		
+		$this->load->model('tasca', 'm_tasca', TRUE);
+		if ($completada)
+		{
+			$this->m_tasca->updateCompleteTask($id_tasca, $id_ususari, 1, $date);
+		}else{
+			$this->m_tasca->updateCompleteTask($id_tasca, $id_ususari, 0, $date);
+		}
+		
+		//$this->load->helper('url');
+		//redirect(base_url().'home', 'refresh');		
 	}
 }
 ?>

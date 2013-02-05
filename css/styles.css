@@ -144,3 +144,28 @@ div#form_task select {padding-top: 3px;}
 .btn_timer img {width: 15px;}
 .spiner {width: 50px;}
 .timer_actual{display: inline;font-size: 16px;font-style: italic;color: #8DA893;}
+
+.task_complete {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	z-index: 100;
+}
+
+input[type="checkbox"] + label span {
+    background: url("../images/check_radio_sheet.png") no-repeat scroll left top transparent;
+    cursor: pointer;
+    display: inline-block;
+    height: 19px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    width: 19px;
+}
+input[type="checkbox"] {
+    display: none;
+}
+input[type="checkbox"] + label {
+    color: #F2F2F2;
+    font-family: Arial,sans-serif;
+    font-size: 14px;
+}
