@@ -161,6 +161,8 @@ input[type="checkbox"] + label span {
     vertical-align: middle;
     width: 19px;
 }
+input[type="checkbox"] + label span.checked{background-position: -19px 0px;}
+
 input[type="checkbox"] {
     display: none;
 }
@@ -169,3 +171,5 @@ input[type="checkbox"] + label {
     font-family: Arial,sans-serif;
     font-size: 14px;
 }
+.startDragged	{}
+.stopDragged	{}

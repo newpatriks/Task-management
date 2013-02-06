@@ -82,8 +82,8 @@ class Tasca extends CI_Model {
   	function updateCompleteTask($id_tasca, $id_ususari, $completada, $date)
   	{	
 		$data = array(
-			'data_fi' => $date,
-        	'completada' => $completada
+			'completada' => $completada,
+			'data_fi' => $date
    		);
    		$this->db->update('tasca', $data, array('pk_tasca' => $id_tasca));
   	}  
