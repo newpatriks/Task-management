@@ -10,7 +10,7 @@ $this->view('bar.php');
 		foreach ($list_usuaris as $key_u => $item_u)
 		{
 			?><li id="box_<?=$item_u->pk_usuari?>" class="box_usuari <? if ($cont % 5 == 0) echo "last"; ?> <? if ($key_u == 0) echo "first"; ?>">
-				<h2><?=$item_u->nom;?></h2><span><?=$item_u->perfil?></span>
+				<h2 class="fit_txt"><?=$item_u->nom;?></h2><span class=""><?=$item_u->perfil?></span>
 				<ul id="boxu_<?=$item_u->pk_usuari?>" class="box_content">
 					<?
 					foreach ($list_tasks as $key_t => $item_t)
@@ -27,7 +27,7 @@ $this->view('bar.php');
 							}
 								?><h4><a><?=$item_t->tasca_nom;?></a></h4>
 								<div class="task_complete">
-									<form class="form_task_complete" name="form_task_complete" method="post" action="tarea/updateComplete" >
+									<form class="form_task_complete" name="form_task_complete" method="post" action="<?=base_url()?>tarea/updateComplete" >
 										<input type="hidden" name="id_task" value="<?=$item_t->pk_tasca?>" />
 										<input type="hidden" name="id_user" value="<?=$item_u->pk_usuari?>" />
 										<input type="hidden" class="is_complete_aux" name="is_complete_aux" value="" />
@@ -50,7 +50,7 @@ $this->view('bar.php');
 									<a class="btn_timer"><img src="images/clock.png" /></a>
 									
 									<div class="spiner_container">
-										<form name="update_timer" class="update_timer" method="post" action="tarea/updateTimer">
+										<form name="update_timer" class="update_timer" method="post" action="<?=base_url()?>tarea/updateTimer">
 											<input type="hidden" name="id_task" value="<?=$item_t->pk_tasca?>" />
 											<input type="hidden" name="id_user" value="<?=$item_u->pk_usuari?>" />
 											<input type="hidden" class="temps_aux" name="temps_aux" value="<?=$item_t->temps_dedicat?>" />

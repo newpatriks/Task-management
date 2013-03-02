@@ -18,8 +18,13 @@ header {
 	background-color: #1D1E24;
 	color: #C18E44;
 	padding: 5px 10px;
-	height: 50px;
+	height: 25px;
 }
+header a {color: inherit;text-decoration: none;}
+header a.current {font-size:25px;font-weight: bold;top: -5px;position: relative;}
+#menu_sprint {position: absolute;}
+#form_task_link img {width: 25px;float: right;}
+
 
 .task {
 	position: relative;
@@ -55,6 +60,7 @@ header {
 #main_box .box_usuari {
 	float: left;
 	width: 19.79%;
+	min-width: 150px;
 	height: 600px;
 	border-left:1px dotted #E0D0AA;
 }
@@ -73,7 +79,10 @@ header {
 
 
 .box_content {position: relative;padding:10px;height: 100%;}
+/*
 .box_content li.completada {opacity: 0.4;}
+*/
+.box_content li.completada {background-color: #1D1E24;opacity: 0.8;}
 
 input.txt, 
 select.txt, 
@@ -163,13 +172,25 @@ input[type="checkbox"] + label span {
 }
 input[type="checkbox"] + label span.checked{background-position: -19px 0px;}
 
-input[type="checkbox"] {
+input.chkbx_complete {
     display: none;
 }
-input[type="checkbox"] + label {
+input [type="checkbox"] + label {
     color: #F2F2F2;
     font-family: Arial,sans-serif;
     font-size: 14px;
 }
 .startDragged	{}
 .stopDragged	{}
+
+#menu_sprint li {
+	position: relative;
+	margin: 0px 10px;
+}
+
+.txt_normal {
+	font-family: 'Exo',sans-serif;
+	font-size: 13px;
+}
+
+.txt_normal input {position: absolute;left: 180px;margin-top: 2px;}

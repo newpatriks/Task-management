@@ -1,6 +1,6 @@
 <div id="form_task">
 		<a id="close" href="#"></a>
-		<form name="task" method="post" action="tarea/newTasca">
+		<form name="task" id="f_newtask" method="post" action="<?=base_url()?>tarea/newTasca">
 			<input type="hidden" name="edit" value="" />
 			
 			<table>
@@ -14,7 +14,7 @@
 				</tr>
 				<tr>
 					<td><label for="data_fi">Data fi:</label></td>
-					<td><input type="text" class="txt datepicker" name="data_fi" value="<? if ($edit) echo $tasca_datafi;?>" /></td>
+					<td><input type="text" class="txt datepicker" name="data_fi" value="<? if ($edit) echo $tasca_datafi; else echo $sprint_actual[0]->data_entrega ?>" /></td>
 				</tr>
 				<tr>
 					<td><label for="durada">Durada (h):</label></td>
@@ -42,29 +42,22 @@
 				</tr>
 				<tr>
 					<td><label for="assignada">Assignada a:</label></td>
-					<td>
-						<select name="assignada" class="txt">
-							<option value="">Selecciona un usuari &raquo;</option>
-							<? foreach ($list_usuaris as $key_u => $item_u)
-								{
-								?><option value="<?=$key_u?>" 
-								<? if ($edit) {
-									if ($key_u == $tasca_assignada) {
-										?>selected = "selected"<?
-									}
-								}?>
-								><?=$item_u->nom?></option><?		
-								}
-							?>
-							
-						</select>
+					<td class="txt_normal">
+						<? foreach ($list_usuaris as $key_u => $item_u)
+						{ 
+						?>
+							<?=$item_u->nom?>: <input type="checkbox" name="usr_<?=$item_u->pk_usuari?>" value="" />
+							<? // if ($key_u % 2 == 0) echo "<br/>"; ?>
+							<br/><?
+						} 
+						?>
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2">&nbsp;</td>
 				</tr>
 				<tr>
-					<td colspan="2" align="right"><input type="submit" value="Enviar" class="btn" id="new_task_btn"/></td>
+					<td colspan="2" align="right"><input type="button" value="Enviar" class="btn" id="new_task_btn"/></td>
 				</tr>
 			</table>	
 		</form>

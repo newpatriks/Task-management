@@ -68,8 +68,20 @@ $(document).ready(function() {
 		Next step: Configure the submit button from the new task form to 
 		upload the information with $ajax
 	*/
-	$("#new_task_btn").submit(function() {
+	$("#new_task_btn").click(function() {
+		$.ajax({
+	        url: $(this).parent().parent().parent().parent().parent("#f_newtask").attr( 'action' ),
+	        type: 'post',
+	        data: $(this).parent().parent().parent().parent().parent("#f_newtask").serialize(),
+		}).done( function(msg) {
+	    	$('#form_task').animate({
+				'top': '-500px',
+			}, 1000, 'easeOutBack', function() {
 		
+			});
+	    }).fail( function(jqXHR, textStatus) {
+	    	console.log("fail");
+	    });	
 	});
 	
 	/*
@@ -121,8 +133,7 @@ $(document).ready(function() {
 	    	});
 	    }).fail( function(jqXHR, textStatus) {
 	    });			
-	});
-	
+	});	
 	
 	/*
 		The checkbox only shows when mouseover the task
@@ -186,5 +197,9 @@ $(document).ready(function() {
 		
 		});
 	});
+
+	$(".fit_txt").fitText(0.400);
+	//$("h2").lettering();
+	$(".fit_txt_perfil").fitText(1);
 
 });

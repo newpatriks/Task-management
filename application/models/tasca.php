@@ -7,10 +7,11 @@ class Tasca extends CI_Model {
         parent::__construct();
     }
     
-    function getAllTasques()
+    function getAllTasques($sprint)
     {
 	    $this->db->select('*, DAY(tasca.data_fi) AS dia_datafi, MONTH(tasca.data_fi) AS mes_datafi, YEAR(tasca.data_fi) AS any_datafi,  usuari.nom as usuari_nom, tasca.nom as tasca_nom');
 	    $this->db->from('tasca');
+	    $this->db->where('fk_sprint', $sprint);
 	    $this->db->join('tasca_x_usuari', 'tasca_x_usuari.fk_tasca = tasca.pk_tasca');
 	    $this->db->join('usuari', 'usuari.pk_usuari = tasca_x_usuari.fk_usuari');
         //$this->db->group_by('pk_tasca');     
@@ -31,7 +32,17 @@ class Tasca extends CI_Model {
 	    $this->db->select('*');
 	    $this->db->from('sprint');
         $query = $this->db->get();
-        return $query->result();	    
+        return $query->result();
+    }
+    
+    function getInfoSprint($id_sprint) 
+    {
+	    $this->db->select('*');
+        $this->db->select("DATE_FORMAT( data_finalitzacio, '%d/%m/%Y' ) AS data_entrega",  FALSE );
+	    $this->db->from('sprint');
+	    $this->db->where('pk_sprint',$id_sprint);
+        $query = $this->db->get();
+        return $query->result();
     }
     
     function setTascaNewUser($id_tasca, $id_usuari_from, $id_usuari_to)

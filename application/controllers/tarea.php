@@ -16,13 +16,24 @@ class Tarea extends CI_Controller {
 		$t_date_end	= $_POST['data_fi'];
 		$t_durada	= $_POST['durada'];
 		$t_sprint	= $_POST['sprint'];
-		$t_assignada= $_POST['assignada'];
 		
 		$this->load->model('tasca', 'm_tasca', TRUE);
 		$this->m_tasca->newTask($t_name, $t_explain, $t_date_end, $t_sprint);
-		
 		$lastTask = $this->m_tasca->getLastTask();
-		$this->m_tasca->relationTaskUser($lastTask[0]['pk_tasca'], $t_assignada);
+		
+		foreach($_POST as $key_p => $val_p)
+		{
+			//echo $key_p." => ".$val_p."<br/>";
+			$t_assignada = explode("_" , $key_p);
+			if ($t_assignada[0] == "usr")
+			{
+				// We've found the users assigned to the tasks
+				//echo $lastTask[0]['pk_tasca']." | ".int($t_assignada[1]."<br/>");
+				$this->m_tasca->relationTaskUser($lastTask[0]['pk_tasca'], $t_assignada[1]);
+			}else{
+			//	echo "NO ".$t_assignada[1]."<br/>";
+			}
+		}
 	}
 	
 	public function updateTasca() 

@@ -12,21 +12,26 @@
 
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
         
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="<?=base_url()?>css/normalize.css">
+        <link rel="stylesheet" href="<?=base_url()?>css/main.css">
+        <link rel="stylesheet" href="<?=base_url()?>css/styles.css">
         
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="<?=base_url()?>js/vendor/modernizr-2.6.2.min.js"></script>
+        
         
         <!--
         <script src="js/vendor/jquery-1.9.0.min.js"></script>
         <script src="js/vendor/jquery-ui.min.js"></script>
         -->
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
-        <script src="js/vendor/jquery.fancybox.pack.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+
+        <script src="<?=base_url()?>js/vendor/jquery.fancybox.pack.js"></script>
+        <script src="<?=base_url()?>js/vendor/jquery.fittext.js"></script>
+        <script src="<?=base_url()?>js/vendor/jquery.lettering.js"></script>
+        <script src="<?=base_url()?>js/plugins.js"></script>
+        <script src="<?=base_url()?>js/main.js"></script>
         
         <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic|Arvo:400,400italic,700,700italic|Shadows+Into+Light|Exo:400,100,300italic,100italic,200,200italic,300,400italic,500,500italic,600,600italic,700italic,700,800,800italic,900,900italic' rel='stylesheet' type='text/css'>
     </head>
