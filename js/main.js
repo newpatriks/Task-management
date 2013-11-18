@@ -1,5 +1,4 @@
-$(document).ready(function() {
-				
+$(document).ready(function() {			
 	/*
 		The sortable method is used to change the user assigned to this task. 
 	*/

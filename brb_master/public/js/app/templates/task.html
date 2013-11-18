@@ -1,0 +1,34 @@
+<li id="task_0" class="task pendent">
+	<h4><a><%=task->name%></a></h4>
+	<!--
+	<div class="task_complete">
+		<form class="form_task_complete" name="form_task_complete" method="post" action="<?=base_url()?>tarea/updateComplete" >
+			<input type="hidden" name="id_task" value="<?=$item_t->pk_tasca?>" />
+			<input type="hidden" name="id_user" value="<?=$item_u->pk_usuari?>" />
+			<input type="hidden" class="is_complete_aux" name="is_complete_aux" value="" />
+			<input type="checkbox" class="chkbx_complete" name="is_complete" />
+			<label for="chkbx_complete"><span <?
+				if ($item_t->completada)
+				{
+					?>class="checked"<?
+				}
+				?>></span></label>
+		</form>
+	</div>
+	<div class="task_content">
+		Temps dedicat: <div class="timer_actual"><?=$item_t->temps_dedicat?></div> hores 
+		<a class="btn_timer"><img src="images/clock.png" /></a>
+		<div class="spiner_container">
+			<form name="update_timer" class="update_timer" method="post" action="<?=base_url()?>tarea/updateTimer">
+				<input type="hidden" name="id_task" value="<?=$item_t->pk_tasca?>" />
+				<input type="hidden" name="id_user" value="<?=$item_u->pk_usuari?>" />
+				<input type="hidden" class="temps_aux" name="temps_aux" value="<?=$item_t->temps_dedicat?>" />
+				
+				<input name="temps" class="spiner" id="spiner_<?=$item_t->pk_tasca?>" value="<?=$item_t->temps_dedicat?>" />
+				<a class="btn_tick"><img src="images/tick.png" /></a>
+			</form>
+		</div>
+		
+	</div>
+	-->
+</li>

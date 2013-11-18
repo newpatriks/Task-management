@@ -1,0 +1,7 @@
+<ul>
+	<% 
+	_.each(users['models'], function(item, i) {
+		%><li><%=item['attributes'].nom%></li><%
+	}); 
+	%>
+</ul>
